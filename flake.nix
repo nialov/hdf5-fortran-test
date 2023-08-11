@@ -1,7 +1,7 @@
 {
   description = "A simple Fortran program using HDF5";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/20.09";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   # inputs.nix-extra.url = "github:nialov/nix-extra/feat-package-dfnworks";
 
   outputs = { self, ... }@inputs:
@@ -12,11 +12,12 @@
         system = "x86_64-linux";
 
         overlays = [
-          (_: prev: {
+          (_: prev:
+            {
 
-            inherit (inputs.nix-extra.packages."x86_64-linux") hdf5-full;
+              # inherit (inputs.nix-extra.packages."x86_64-linux") hdf5-full;
 
-          })
+            })
 
         ];
 
